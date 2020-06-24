@@ -1,0 +1,125 @@
+* {
+  box-sizing: border-box;
+}
+
+// ------------------ヘッダー-----------------
+.Top-menu{
+    height: 60px;
+    background-color: #cccccc;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  .Title{
+    font-size: 40px;
+  }
+  .Head-items{
+    &__logout-btn{
+      padding: 10px 5px;
+      border: 1px solid #111111;
+      margin-right: 20px;
+    }
+    &__edit-btn{
+      padding: 10px 5px;
+      border: 1px solid #111111;
+    }
+  }
+}
+// ------------------body-----------------
+.body{
+  display: flex;
+}
+
+// ------------------いいねランキング-----------------
+.Like-ranking{
+  height: calc(100vh - 60px);
+  width: 200px;
+  padding: 10px;
+  background-color: #eeee00;
+  .Like-item{
+    height: 400px;
+    background-color: #ee0000;
+  }
+}
+
+
+
+// ------------------メインコンテンツ-----------------
+
+.Main-contents{
+  height: calc(100vh - 60px);
+  width: 500px;
+  padding: 10px 50px;
+  background-color: #eeeeee;
+  .Ranking{
+    height: 210px;
+    width: 400px;
+    background-color: #bbbbbb;
+    padding: 24px;
+    margin-bottom: 20px;
+    .Ranking__title{
+      font-size: 24px;
+      border-bottom: 1px solid #11bbbb;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: center;
+    }
+    .Ranking__first{
+      font-size: 22px;
+      margin-bottom: 10px;
+      .First{
+        color: #dbd810;
+      }
+    }
+    .Ranking__second{
+      font-size: 18px;
+      margin-bottom: 10px;
+      .Second{
+        color: #e0e0d4;
+      }
+    }
+    .Ranking__third{
+      font-size: 18px;
+      margin-bottom: 10px;
+      .Third{
+        color: #cc9122;
+      }
+    }
+    .Ranking__footer{
+      display: flex;
+      align-items: center;
+      float: right;
+      .Ranking-name{
+        font-size: 14px;
+        border: 5px;
+      }
+      .Like-btn{
+        font-size: 10px;
+        padding: 1px;
+        border: 1px solid #111111;
+      }
+    }
+  }
+}
+
+// ------------------メニュー-----------------
+
+.Right-menu{
+  padding: 10px;
+  .Right-items{
+    &__ranking-btn{
+      padding: 10px 5px;
+      border: 1px solid #111111;
+      margin-right: 20px;
+    }
+  }
+}
+  
+
+
+
+
+
+a {
+  text-decoration: none;
+}
