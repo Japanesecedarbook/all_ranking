@@ -1,6 +1,12 @@
 .Contents-row
   .container
     = form_with model: [@ranking], local: true do |f|
+      - if @ranking.errors.any?
+        .SettingGroupForm__errors
+          %h2= "#{@ranking.errors.full_messages.count}件のエラーが発生しました。"
+          %ul
+            - @ranking.errors.full_messages.each do |message|
+              %li= message
       .Form-items
         = f.text_field :title, class: 'Form-items__title', placeholder: 'タイトルを入力してください'
         = f.text_field :rank1, class: 'Form-items__rank', placeholder: '1位を入力してください'
