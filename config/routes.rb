@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
   root "rankings#index"
-  resources :rankings, only: [:index, :new, :create]
+  resources :rankings, only: [:index, :new, :create, :edit, :update, :destroy]
 end
