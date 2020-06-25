@@ -1,0 +1,21 @@
+.Ranking{:style => "background-image: url(#{ranking.image});"}
+  .Ranking__title
+    = ranking.title
+    ランキング
+  .Ranking__first
+    = icon('fas', 'crown',  class: "First")
+    1位 :
+    = ranking.rank1
+  .Ranking__second
+    = icon('fas', 'crown',  class: "Second")
+    2位 :
+    = ranking.rank2
+  .Ranking__third
+    = icon('fas', 'crown',  class: "Third")
+    3位 :
+    = ranking.rank3
+  .Ranking__footer
+    .Ranking-name
+      =ranking.user.name
+    .Like-btn
+      いいね

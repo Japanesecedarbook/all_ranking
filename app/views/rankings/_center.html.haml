@@ -1,33 +1,7 @@
 .Main-contents
-  .Ranking
-    .Ranking__title
-      好きな主食
-    .Ranking__first
-      = icon('fas', 'crown',  class: "First")
-      1位 : パン 
-    .Ranking__second
-      = icon('fas', 'crown',  class: "Second")
-      2位 : ご飯
-    .Ranking__third
-      = icon('fas', 'crown',  class: "Third")
-      3位 : ラーメン
-    .Ranking__footer
-      .Ranking-name
-        a さん
-      .Like-btn
-        いいね
-  .Ranking
-    .Ranking__title
-      旅行に行きたい県
-    .Ranking__first
-      = icon('fas', 'crown',  class: "First")
-      1位 : 東京 
-    .Ranking__second
-      = icon('fas', 'crown',  class: "Second")
-      2位 : 熊本
-    .Ranking__third
-      = icon('fas', 'crown',  class: "Third")
-      3位 : 高知
+  .RankingField
+    = render @rankings
+
 
 -# <% if !current_user?(micropost.user) %>
 -#     <span class="like">
@@ -46,4 +20,14 @@
 -#       <% end %>
 -#     <% end %>
 -#   </span>
+
 -# <% end %>
+-# <%= form_with(url: search_tweets_path, local: true, method: :get, class: "search-form") do |form| %>
+-#   <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
+-#   <%= form.submit "検索", class: "search-btn" %>
+-# <% end %>
+-# <div class="contents row">
+-#   <% @tweets.each do |tweet| %>
+-#     <%= render partial: "tweet", locals: { tweet: tweet } %>
+-#   <% end %>
+-# </div>
