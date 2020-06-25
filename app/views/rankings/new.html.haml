@@ -1,0 +1,12 @@
+.Contents-row
+  .container
+    = form_with model: [@ranking], local: true do |f|
+      .Form-items
+        = f.text_field :title, class: 'Form-items__title', placeholder: 'タイトルを入力してください'
+        = f.text_field :rank1, class: 'Form-items__rank', placeholder: '1位を入力してください'
+        = f.text_field :rank2, class: 'Form-items__rank', placeholder: '2位を入力してください'
+        = f.text_field :rank3, class: 'Form-items__rank', placeholder: '3位を入力してください'
+        = f.label :image, class: 'Form-items__image' do
+          = icon('far', 'image', class: 'Form-items__image-icon')
+          = f.file_field :image, class: 'File'
+      = f.submit 'Send', class: 'Send-btn'
