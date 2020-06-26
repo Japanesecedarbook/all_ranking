@@ -19,3 +19,6 @@
       =ranking.user.name
     .Like-btn
       いいね
+    = link_to edit_ranking_path(ranking.id), class: "Edit-btn" do
+      編集
+    = link_to '削除', "/rankings/#{ranking.id}", method: :delete
