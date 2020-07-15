@@ -8,10 +8,9 @@ class RankingsController < ApplicationController
   end
 
   def create
-    # Ranking.create(ranking_params)
     @ranking = Ranking.new(ranking_params)
     if @ranking.save
-      redirect_to controller: :rankings, action: :index
+      redirect_to root_path
     else
       render "new"
     end
@@ -31,8 +30,9 @@ class RankingsController < ApplicationController
   end
 
   def destroy
-    ranking = Ranking.find(params[:id])
-    ranking.destroy
+    @ranking = Ranking.find(params[:id])
+    @ranking.destroy
+    redirect_to root_path, notice: 'ランキングを削除しました'
   end
 
   private

@@ -1,31 +1,29 @@
-.Ranking{:style => "background-image: url(#{ranking.image});"}
-  .Ranking__title
-    = ranking.title
-    ランキング
-  .Ranking__first
-    = icon('fas', 'crown',  class: "First")
-    1位 :
-    = ranking.rank1
-  .Ranking__second
-    = icon('fas', 'crown',  class: "Second")
-    2位 :
-    = ranking.rank2
-  .Ranking__third
-    = icon('fas', 'crown',  class: "Third")
-    3位 :
-    = ranking.rank3
-  .Ranking__footer
-    .Ranking-name
-      =ranking.user.name
-    - if user_signed_in?
-      .Like-btn
-        = @rankings
-        -# - if current_user.id == @rankings(ranking.id)
-        -#   いいね出来ない
-        -# - else
-        -#   いいね         
-      = link_to "編集", edit_ranking_path(ranking.id), class: "Edit-btn"
-      = link_to '削除', "/rankings/#{ranking.id}", method: :delete
-    - else
-      .Like-btn
-        いいね 
+- @rankings.each do |ranking| 
+  .Ranking{:style => "background-image: url(#{ranking.image});"}
+    .Ranking__title
+      = ranking.title
+      ランキング
+    .Ranking__first
+      = icon('fas', 'crown',  class: "First")
+      1位 :
+      = ranking.rank1
+    .Ranking__second
+      = icon('fas', 'crown',  class: "Second")
+      2位 :
+      = ranking.rank2
+    .Ranking__third
+      = icon('fas', 'crown',  class: "Third")
+      3位 :
+      = ranking.rank3
+    .Ranking__footer
+      .Ranking-name
+        =ranking.user.name
+      - if user_signed_in?
+        - if current_user.id == ranking.user.id
+          .Like-btn-non
+            いいね
+          = link_to "編集", edit_ranking_path(ranking.id), class: "Edit-btn"
+          = link_to '削除', ranking_path(ranking.id), method: :delete
+        - else
+          .Like-btn
+            いいね 
