@@ -19,11 +19,10 @@
       .Ranking-name
         =ranking.user.name
       - if user_signed_in?
-        - if current_user.id == ranking.user.id
+        - if current_user.id == ranking.user_id
           .Like-btn-non
             いいね
           = link_to "編集", edit_ranking_path(ranking.id), class: "Edit-btn"
           = link_to '削除', ranking_path(ranking.id), method: :delete
         - else
-          .Like-btn
-            いいね 
+          = render "likes/like"
