@@ -1,24 +1,53 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# 　　　　　　　　　　　　なんでもランキング
+- 好きなランキングを投稿できるサイトです。
+## 主な使用言語
+- Haml
+- SCSS
+- Ruby
+- JavaScript
 
-Things you may want to cover:
+# 機能紹介
+- 新規会員登録・ログインをするとランキングを投稿できます。
+- 新規会員登録、ログインがお済みでない方もランキングを閲覧可能です。
 
-* Ruby version
+# DB設計
+## usersテーブル
 
-* System dependencies
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|email|string|null: false, unique: true|
+|password|string|null: false|
 
-* Configuration
+### Association
+- has_many :rankings
+- has_many :likes, dependent: :destroy
 
-* Database creation
 
-* Database initialization
+## rankingsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|rank1|string|null: false|
+|rank2|string|null: false|
+|rank3|string|null: false|
+|image|string|null: false|
+|user|references|null: false, foreign_key: true|
+|likes_count|integer||
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+### Association
+- belongs_to :user
+- has_many :likes, dependent: :destroy
 
-* Deployment instructions
+## likesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user|references|null: false, foreign_key: true|
+|ranking|references|null: false, foreign_key: true|
 
-* ...
+### Association
+- belongs_to :user
+- belongs_to :ranking, counter_cache: :likes_count
