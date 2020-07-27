@@ -1,6 +1,7 @@
 class RankingsController < ApplicationController
   def index
     @rankings = Ranking.all.order(id: "DESC")
+    @like = Like.new
   end
 
   def new

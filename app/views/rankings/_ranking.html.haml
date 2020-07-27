@@ -17,7 +17,7 @@
       = ranking.rank3
     .Ranking__footer
       .Ranking-name
-        =ranking.user.name
+        = ranking.user.name
       - if user_signed_in?
         - if current_user.id == ranking.user_id
           .Like-btn-non
@@ -25,4 +25,10 @@
           = link_to "編集", edit_ranking_path(ranking.id), class: "Edit-btn"
           = link_to '削除', ranking_path(ranking.id), method: :delete
         - else
-          = render "likes/like"
+          -# いいね機能
+          .Like
+            %div{id: "rankings_buttons_#{ranking.id}"}
+              = render partial: 'rankings/like_area', locals: { ranking: ranking }
+              = ranking.likes_count
+        -# = render "likes/like"
+

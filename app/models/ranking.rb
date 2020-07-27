@@ -8,9 +8,9 @@ class Ranking < ApplicationRecord
   validates :rank3, presence: true, length: { maximum: 20}
   validates :image, presence: true
 
-  def like_user(user_id)
-    likes.find_by(user_id: user_id)
-   end
+  def like_by?(user)
+    likes.where(user_id: user.id).exists?
+  end
 
   mount_uploader :image, ImageUploader
 end
