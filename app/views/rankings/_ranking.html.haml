@@ -1,24 +1,34 @@
-.Ranking{:style => "background-image: url(#{ranking.image});"}
-  .Ranking__title
-    = ranking.title
-    ランキング
-  .Ranking__first
-    = icon('fas', 'crown',  class: "First")
-    1位 :
-    = ranking.rank1
-  .Ranking__second
-    = icon('fas', 'crown',  class: "Second")
-    2位 :
-    = ranking.rank2
-  .Ranking__third
-    = icon('fas', 'crown',  class: "Third")
-    3位 :
-    = ranking.rank3
-  .Ranking__footer
-    .Ranking-name
-      =ranking.user.name
-    .Like-btn
-      いいね
-    = link_to edit_ranking_path(ranking.id), class: "Edit-btn" do
-      編集
-    = link_to '削除', "/rankings/#{ranking.id}", method: :delete
+- @rankings.each do |ranking| 
+  .Ranking{:style => "background-image: url(#{ranking.image});"}
+    .Ranking__title
+      = ranking.title
+      ランキング
+    .Ranking__first
+      = icon('fas', 'crown',  class: "First")
+      1位 :
+      = ranking.rank1
+    .Ranking__second
+      = icon('fas', 'crown',  class: "Second")
+      2位 :
+      = ranking.rank2
+    .Ranking__third
+      = icon('fas', 'crown',  class: "Third")
+      3位 :
+      = ranking.rank3
+    .Ranking__footer
+      .Ranking-name
+        = ranking.user.name
+      - if user_signed_in?
+        - if current_user.id == ranking.user_id
+          - unless ranking.likes_count == 0 || ranking.likes_count.nil?
+            = icon('fas', 'star', class: 'no')
+          - else
+            = icon('fas', 'star', class: 'yes')
+          = ranking.likes_count
+          = link_to "編集", edit_ranking_path(ranking.id), class: "Edit-btn"
+          = link_to '削除', ranking_path(ranking.id), method: :delete
+        - else
+          -# いいね機能
+          .Like
+            %span{id: "rankings_buttons_#{ranking.id}"}
+              = render partial: 'rankings/like_area', locals: { ranking: ranking }

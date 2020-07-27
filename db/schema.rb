@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_24_055117) do
+ActiveRecord::Schema.define(version: 2020_07_15_124230) do
+
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "ranking_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["ranking_id"], name: "index_likes_on_ranking_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
 
   create_table "rankings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
@@ -21,6 +30,7 @@ ActiveRecord::Schema.define(version: 2020_06_24_055117) do
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "likes_count"
     t.index ["user_id"], name: "index_rankings_on_user_id"
   end
 
@@ -38,5 +48,7 @@ ActiveRecord::Schema.define(version: 2020_06_24_055117) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "likes", "rankings"
+  add_foreign_key "likes", "users"
   add_foreign_key "rankings", "users"
 end
