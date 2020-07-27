@@ -4,11 +4,13 @@ class LikesController < ApplicationController
   def create
     like = current_user.likes.build(ranking_id: params[:ranking_id])
     like.save
+    redirect_to root_path
   end
 
   def destroy
     like = current_user.likes.find_by(ranking_id: params[:ranking_id])
     like.destroy
+    redirect_to root_path
   end
 
   private

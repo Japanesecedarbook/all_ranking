@@ -3,3 +3,4 @@
     = link_to icon('fas', 'star', class: 'no'), ranking_likes_path(ranking.id), method: :delete, remote: true
   - else
     = link_to icon('fas', 'star', class: 'yes'), ranking_likes_path(ranking.id), method: :post, remote: true
+  = ranking.likes_count
