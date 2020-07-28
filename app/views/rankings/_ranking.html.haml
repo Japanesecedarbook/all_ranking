@@ -28,7 +28,6 @@
           = link_to "編集", edit_ranking_path(ranking.id), class: "Edit-btn"
           = link_to '削除', ranking_path(ranking.id), method: :delete
         - else
-          -# いいね機能
           .Like
             %span{id: "rankings_buttons_#{ranking.id}"}
               = render partial: 'rankings/like_area', locals: { ranking: ranking }
