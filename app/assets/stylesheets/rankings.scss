@@ -33,12 +33,17 @@
 // ------------------いいねランキング-----------------
 .Like-ranking{
   height: calc(100vh - 60px);
-  width: 200px;
+  width: 300px;
   padding: 10px;
   background-color: #eeee00;
   .Like-item{
     height: 400px;
-    background-color: #ee0000;
+    background-color: #f38080;
+    &__title{
+      font-size: 20px;
+      text-align: center;
+      border-bottom: 1px solid lightgrey;
+    }
   }
 }
 
