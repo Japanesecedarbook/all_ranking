@@ -12,7 +12,7 @@ class RankingsController < ApplicationController
   def create
     @ranking = Ranking.new(ranking_params)
     if @ranking.save
-      redirect_to root_path
+      redirect_to root_path, notice:"ランキング投稿しました"
     else
       render "new"
     end
