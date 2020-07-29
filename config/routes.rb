@@ -7,5 +7,8 @@ Rails.application.routes.draw do
   resources :rankings, only: [:index, :new, :create, :edit, :update, :destroy], shallow: true do
     resource :likes, only: %i[create destroy]
     get :likes, on: :collection
+    collection do
+      get 'search'
+    end
   end
 end

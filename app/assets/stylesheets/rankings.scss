@@ -118,12 +118,15 @@
 // ------------------メニュー-----------------
 
 .Right-menu{
-  padding: 10px;
+  padding: 20px;
   .Right-items{
     &__ranking-btn{
       padding: 10px 5px;
       border: 1px solid #111111;
       margin-right: 20px;
+    }
+    &__searchBox{
+      margin-top: 20px;
     }
   }
 }

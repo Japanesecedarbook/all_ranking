@@ -2,3 +2,8 @@
   .Right-items
     = link_to "/rankings/new", class: "Right-items__ranking-btn" do
       ランキング投稿
+    .Right-items__searchBox
+      = form_with(url: search_rankings_path, local: true, method: :get, class: "Right-items__searchBox__forms") do |form|
+        = form.text_field :keyword, placeholder: "タイトルから探す", class: "Right-items__searchBox__forms--form"
+        = form.submit "検索", class: "Right-items__searchBox__forms--submit"
+    
