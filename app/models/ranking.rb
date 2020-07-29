@@ -14,9 +14,9 @@ class Ranking < ApplicationRecord
 
   def self.search(search)
     if search
-      Ranking.where('title LIKE(?)', "%#{search}%")
+      Ranking.where('title LIKE(?)', "%#{search}%").order(id: "DESC")
     else
-      Ranking.all
+      Ranking.all.order(id: "DESC")
     end
   end
 
