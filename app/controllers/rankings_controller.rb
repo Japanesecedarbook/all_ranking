@@ -37,6 +37,12 @@ class RankingsController < ApplicationController
     redirect_to root_path, notice: 'ランキングを削除しました'
   end
 
+  def search
+    @rankings = Ranking.search(params[:keyword])
+    @ranking_likes = Ranking.all.order(likes_count: "DESC")
+    @like = Like.new
+  end
+
   private
   def ranking_params
     params.require(:ranking).permit(:title, :rank1, :rank2, :rank3, :image).merge(user_id: current_user.id)

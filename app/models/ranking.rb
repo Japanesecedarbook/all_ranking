@@ -12,5 +12,13 @@ class Ranking < ApplicationRecord
     likes.where(user_id: user.id).exists?
   end
 
+  def self.search(search)
+    if search
+      Ranking.where('title LIKE(?)', "%#{search}%").order(id: "DESC")
+    else
+      Ranking.all.order(id: "DESC")
+    end
+  end
+
   mount_uploader :image, ImageUploader
 end
