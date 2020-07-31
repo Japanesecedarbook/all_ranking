@@ -1,5 +1,5 @@
 %h2 なんでもランキング
-%h3 ートップページー
+%h3 ー新規会員登録ページー
 = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
   = render "devise/shared/error_messages", resource: resource
   .field
@@ -22,5 +22,6 @@
     %br/
     = f.password_field :password_confirmation, autocomplete: "new-password"
   .actions
-    = f.submit "新規登録"
-= render "devise/shared/links"
+    = f.submit "登録する"
+
+  

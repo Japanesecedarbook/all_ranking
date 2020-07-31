@@ -18,16 +18,23 @@
       padding: 10px 5px;
       border: 1px solid #111111;
       margin: 0 20px;
+      background-color: white;
+      border-radius: 10px;
     }
     &__edit-btn{
       padding: 10px 5px;
       border: 1px solid #111111;
+      background-color: white;
+      border-radius: 10px;
     }
   }
 }
 // ------------------body-----------------
 .body{
   display: flex;
+  background-image: image-url("cracker.png");
+  background-color:rgba(255,255,255,0.85);
+  background-blend-mode:lighten;
 }
 
 // ------------------いいねランキング-----------------
@@ -35,10 +42,7 @@
   height: calc(100vh - 60px);
   width: 300px;
   padding: 10px;
-  background-color: #eeee00;
   .Like-item{
-    height: 400px;
-    background-color: #f38080;
     &__title{
       font-size: 20px;
       text-align: center;
@@ -47,28 +51,20 @@
   }
 }
 
-
-
 // ------------------メインコンテンツ-----------------
 
 .Main-contents{
   height: calc(100vh - 60px);
   width: 600px;
   padding: 10px 50px;
-  background-color: #eeeeee;
-  overflow: scroll;
   .Ranking{
-    height: 210px;
+    height: 220px;
     width: 500px;
-    background-size: 500px 210px;
-    background-color:rgba(255,255,255,0.5);
+    background-size: 500px 220px;
+    background-color:rgba(255,255,255,0.7);
     background-blend-mode:lighten;
     padding: 24px;
     margin-bottom: 20px;
-    position: relative;
-    &__image{
-      position: absolute;
-    }
     &__title{
       font-size: 24px;
       border-bottom: 1px solid #11bbbb;
@@ -80,21 +76,36 @@
       font-size: 22px;
       margin-bottom: 10px;
       .First{
-        color: #dbd810;
+        color: gold;
+        text-shadow: 
+        black 1px 1px 0, black -1px -1px 0,/*右下、左上*/
+        black -1px 1px 0, black 1px -1px 0,/*右上、左下*/
+        black 0px 1px 0, black  0-1px 0,/*右、左*/
+        black -1px 0 0, black 1px 0 0;/*上、下*/
       }
     }
     .Ranking__second{
       font-size: 18px;
       margin-bottom: 10px;
       .Second{
-        color: #e0e0d4;
+        color: silver;
+        text-shadow: 
+        black 1px 1px 0, black -1px -1px 0,/*右下、左上*/
+        black -1px 1px 0, black 1px -1px 0,/*右上、左下*/
+        black 0px 1px 0, black  0-1px 0,/*右、左*/
+        black -1px 0 0, black 1px 0 0;/*上、下*/
       }
     }
     .Ranking__third{
       font-size: 18px;
       margin-bottom: 10px;
       .Third{
-        color: #cc9122;
+        color: burlywood;
+        text-shadow: 
+        black 1px 1px 0, black -1px -1px 0,/*右下、左上*/
+        black -1px 1px 0, black 1px -1px 0,/*右上、左下*/
+        black 0px 1px 0, black  0-1px 0,/*右、左*/
+        black -1px 0 0, black 1px 0 0;/*上、下*/
       }
     }
     .Ranking__footer{
@@ -105,11 +116,35 @@
         font-size: 14px;
         border: 5px;
         margin-right: 5px;
-      }
-      .Like-btn{
-        font-size: 10px;
-        padding: 1px;
+        color: black;
+        padding: 0 5px;
         border: 1px solid #111111;
+        background-color: white;
+        border-radius: 10px;
+      }
+      .Edit-btn{
+        margin: 0 5px;
+        color: black;
+        padding: 0 5px;
+        border: 1px solid #111111;
+        background-color: white;
+        border-radius: 10px;
+      }
+      .Delete-btn{
+        color: black;
+        padding: 0 5px;
+        border: 1px solid #111111;
+        background-color: white;
+        border-radius: 10px;
+      }
+      .Like{
+        padding: 0 5px;
+        border: 1px solid #111111;
+        background-color: white;
+        border-radius: 10px;
+        span{
+          color: black;
+        }
       }
     }
   }
@@ -122,8 +157,10 @@
   .Right-items{
     &__ranking-btn{
       padding: 10px 5px;
+      background-color: white;
       border: 1px solid #111111;
       margin-right: 20px;
+      border-radius: 10px;
     }
     &__searchBox{
       margin-top: 20px;
@@ -141,9 +178,9 @@ a {
 }
 
 .no{
-  color: black;
+  color: gold;
 }
 
 .yes{
-  color: white;
+  color: black;
 }

@@ -1,6 +1,12 @@
 - if user_signed_in?
   - if ranking.like_by?(current_user)
-    = link_to icon('fas', 'star', class: 'no'), ranking_likes_path(ranking.id), method: :delete, remote: true
+    = link_to  ranking_likes_path(ranking.id), method: :delete, remote: true do
+      = icon('fas', 'star', class: 'no')
+      %span いいね
+      = ranking.likes_count
   - else
-    = link_to icon('fas', 'star', class: 'yes'), ranking_likes_path(ranking.id), method: :post, remote: true
-  = ranking.likes_count
+    = link_to ranking_likes_path(ranking.id), method: :post, remote: true do
+      = icon('fas', 'star', class: 'yes')
+      %span いいね
+      = ranking.likes_count
+

@@ -1,8 +1,10 @@
 .Top-menu
   .Title
-    なんでもランキング
+    = link_to root_path do
+      なんでもランキング
   .Head-items
     -if user_signed_in?
+      ユーザー名:
       = current_user.name
       = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'Head-items__logout-btn'
       = link_to "ユーザー編集", edit_user_path(current_user), class: "Head-items__edit-btn"
