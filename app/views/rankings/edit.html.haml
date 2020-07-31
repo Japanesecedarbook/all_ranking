@@ -7,10 +7,10 @@
     .Send-title
       ランキング投稿
     = form_with model: [@ranking], local: true do |f|
-      - if @ranking.errors.any?
-        .Settinggroupform__errors
+      - if resource.errors.any?
+        #error_explanation
           %ul
-            - @ranking.errors.full_messages.each do |message|
+            - resource.errors.full_messages.each do |message|
               %li= message
       .Form-items
         .Form-items__title

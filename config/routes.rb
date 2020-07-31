@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'likes/create'
   get 'likes/destroy'
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'users/registrations' }
   root "rankings#index"
   resources :users, only: [:edit, :update]
   resources :rankings, only: [:index, :new, :create, :edit, :update, :destroy], shallow: true do
