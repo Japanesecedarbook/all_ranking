@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
   root "rankings#index"
   resources :users, only: [:edit, :update]
-  resources :rankings, only: [:index, :new, :create, :edit, :update, :destroy], shallow: true do
+  resources :rankings, shallow: true do
     resource :likes, only: %i[create destroy]
     get :likes, on: :collection
     collection do

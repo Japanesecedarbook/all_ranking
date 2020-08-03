@@ -1,3 +1,37 @@
 .Main-contents
   .RankingField
-    = render "ranking"
+    - unless action_name == "show"
+      = render "ranking"
+    - else
+      .Ranking{:style => "background-image: url(#{@ranking.image});"}
+        = link_to ranking_path(@ranking.id) do
+          .Ranking__title
+            %span= @ranking.title
+            %span ランキング
+        .Ranking__first
+          = icon('fas', 'crown',  class: "First")
+          1位 :
+          = @ranking.rank1
+        .Ranking__second
+          = icon('fas', 'crown',  class: "Second")
+          2位 :
+          = @ranking.rank2
+        .Ranking__third
+          = icon('fas', 'crown',  class: "Third")
+          3位 :
+          = @ranking.rank3
+        .Ranking__footer
+          .Ranking-name
+            投稿者:
+            = @ranking.user.name
+          .Like
+            - if @ranking.likes_count.nil?
+              = icon('fas', 'star', class: 'yes')
+              %span いいね 0
+            - elsif @ranking.likes_count == 0
+              = icon('fas', 'star', class: 'yes')
+              %span いいね
+            - else
+              = icon('fas', 'star', class: 'no')
+              %span いいね
+            %span= @ranking.likes_count

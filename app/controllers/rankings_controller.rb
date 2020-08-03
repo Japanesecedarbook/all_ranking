@@ -31,6 +31,12 @@ class RankingsController < ApplicationController
     end
   end
 
+  def show
+    @ranking = Ranking.find(params[:id])
+    @ranking_likes = Ranking.all.order(likes_count: "DESC")
+    @like = Like.new
+  end
+
   def destroy
     @ranking = Ranking.find(params[:id])
     @ranking.destroy
