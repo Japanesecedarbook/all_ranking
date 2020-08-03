@@ -1,18 +1,34 @@
 .Contents-row
-  .container
+  .Header
+    .Title
+      = link_to root_path do
+        なんでもランキング
+  .Container
+    .Send-title
+      ランキング投稿
+    = render 'layouts/error', model: @ranking
     = form_with model: [@ranking], local: true do |f|
-      - if @ranking.errors.any?
-        .SettingGroupForm__errors
-          %h2= "#{@ranking.errors.full_messages.count}件のエラーが発生しました。"
-          %ul
-            - @ranking.errors.full_messages.each do |message|
-              %li= message
       .Form-items
-        = f.text_field :title, class: 'Form-items__title', placeholder: 'タイトルを入力してください'
-        = f.text_field :rank1, class: 'Form-items__rank', placeholder: '1位を入力してください'
-        = f.text_field :rank2, class: 'Form-items__rank', placeholder: '2位を入力してください'
-        = f.text_field :rank3, class: 'Form-items__rank', placeholder: '3位を入力してください'
-        = f.label :image, class: 'Form-items__image' do
-          = icon('far', 'image', class: 'Form-items__image-icon')
-          = f.file_field :image, class: 'File'
-      = f.submit 'Send', class: 'Send-btn'
+        .Form-items__title
+          .Form-items__title__name
+            タイトルを入力してください
+          = f.text_field :title, class: 'Form-items__title__box', placeholder: 'タイトルを入力'
+        .Form-items__rank
+          .Form-items__rank__name
+            1位を入力してください
+          = f.text_field :rank1, class: 'Form-items__rank__box', placeholder: '1位を入力'
+        .Form-items__rank
+          .Form-items__rank__name
+            2位を入力してください
+          = f.text_field :rank2, class: 'Form-items__rank__box', placeholder: '2位を入力'
+        .Form-items__rank
+          .Form-items__rank__name
+            3位を入力してください
+          = f.text_field :rank3, class: 'Form-items__rank__box', placeholder: '3位を入力'
+        .Form-items__image
+          .Form-items__image__name
+            背景にする画像を選択してください
+          = f.label :image, class: 'Form-items__image__box' do
+            = f.file_field :image
+      = f.submit '投稿する', class: 'Send-btn'
+      = link_to "戻る", root_path, class: "Return-btn"

@@ -1,26 +1,32 @@
-%h2 なんでもランキング
-%h3 ートップページー
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :name
-    %br/
-    = f.text_field :name
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :パスワード
-    - if @minimum_password_length
-      %em
-        (英文字#{@minimum_password_length} 文字以上)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label :パスワード（確認用）
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .actions
-    = f.submit "新規登録"
-= render "devise/shared/links"
+.Contents
+  .Header
+    .Title
+      = link_to root_path do
+        なんでもランキング
+  .Container
+    .Send-title
+      新規会員登録
+    = form_for(@user, url: user_registration_path) do |f|
+      = render "devise/shared/error_messages", resource: @user
+      .Form-items
+        .Form-items__item
+          .Form-items__item__name
+            ユーザー名を入力してください
+          = f.text_field :name, autofocus: true, class: 'Form-items__item__box', placeholder: 'タイトルを入力'
+        .Form-items__item
+          .Form-items__item__name
+            メールアドレスを入力してください
+          = f.email_field :email, class: 'Form-items__item__box', autocomplete: "email", placeholder: 'メールアドレスを入力'
+        .Form-items__item
+          .Form-items__item__name
+            パスワードを入力してください
+            (英文字#{@minimum_password_length} 文字以上)
+          = f.password_field :password, class: 'Form-items__item__box', autocomplete: "new-password", placeholder: 'パスワードを入力'
+        .Form-items__item
+          .Form-items__item__name
+            パスワード（確認）
+          = f.password_field :password_confirmation, class: 'Form-items__item__box', autocomplete: "new-password", placeholder: '同じパスワードを入力'
+      = f.submit '登録する', class: 'Send-btn'
+      = link_to "戻る", root_path, class: "Return-btn"
+
+  
