@@ -2,7 +2,7 @@ ja:
   activerecord:
     attributes:
       ranking:
-        title: '商品名'
+        title: 'タイトル'
         image: '背景画像'
         rank1: '1位'
         rank2: '2位'

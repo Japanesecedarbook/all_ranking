@@ -19,14 +19,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  def update
-    @resource = Resource.find(parmas[:id])
-    if @user.update_attributes(user_params)
-      redirect_to @user
-    else
-     render 'edit'
-    end
-  end
   # DELETE /resource
   # def destroy
   #   super

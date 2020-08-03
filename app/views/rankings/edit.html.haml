@@ -6,12 +6,8 @@
   .Container
     .Send-title
       ランキング投稿
-    = form_with model: [@ranking], local: true do |f|
-      - if resource.errors.any?
-        #error_explanation
-          %ul
-            - resource.errors.full_messages.each do |message|
-              %li= message
+    = render 'layouts/error', model: @ranking
+    = form_with(model: @ranking, local: true) do |f|
       .Form-items
         .Form-items__title
           .Form-items__title__name
