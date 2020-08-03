@@ -1,8 +1,9 @@
 - @rankings.each do |ranking| 
   .Ranking{:style => "background-image: url(#{ranking.image});"}
-    .Ranking__title
-      = ranking.title
-      ランキング
+    = link_to ranking_path(ranking.id) do
+      .Ranking__title
+        %span= ranking.title
+        %span ランキング
     .Ranking__first
       = icon('fas', 'crown',  class: "First")
       1位 :
@@ -24,14 +25,14 @@
           .Like
             - if ranking.likes_count.nil?
               = icon('fas', 'star', class: 'yes')
-              いいね 0
+              %span いいね 0
             - elsif ranking.likes_count == 0
               = icon('fas', 'star', class: 'yes')
-              いいね
+              %span いいね
             - else
               = icon('fas', 'star', class: 'no')
-              いいね
-            = ranking.likes_count
+              %span いいね
+            %span= ranking.likes_count
           = link_to "編集", edit_ranking_path(ranking.id), class: "Edit-btn"
           = link_to '削除', ranking_path(ranking.id), method: :delete, class: "Delete-btn", data: { confirm: "#{ranking.title}ランキングを削除しますか？" }
         - else
@@ -42,11 +43,11 @@
         .Like
           - if ranking.likes_count.nil?
             = icon('fas', 'star', class: 'yes')
-            いいね 0
+            %span いいね 0
           - elsif ranking.likes_count == 0
             = icon('fas', 'star', class: 'yes')
-            いいね
+            %span いいね
           - else
             = icon('fas', 'star', class: 'no')
-            いいね
-          = ranking.likes_count
+            %span いいね
+          %span= ranking.likes_count

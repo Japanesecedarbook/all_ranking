@@ -18,11 +18,13 @@
       padding: 10px 5px;
       border: 1px solid #111111;
       margin: 0 20px;
+      color: black;
       background-color: white;
       border-radius: 10px;
     }
     &__edit-btn{
       padding: 10px 5px;
+      color: black;
       border: 1px solid #111111;
       background-color: white;
       border-radius: 10px;
@@ -142,9 +144,6 @@
         border: 1px solid #111111;
         background-color: white;
         border-radius: 10px;
-        span{
-          color: black;
-        }
       }
     }
   }
@@ -157,6 +156,7 @@
   .Right-items{
     &__ranking-btn{
       padding: 10px 5px;
+      color: black;
       background-color: white;
       border: 1px solid #111111;
       margin-right: 20px;
@@ -182,5 +182,9 @@ a {
 }
 
 .yes{
+  color: black;
+}
+
+span{
   color: black;
 }
