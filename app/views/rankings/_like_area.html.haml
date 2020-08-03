@@ -6,7 +6,11 @@
       = ranking.likes_count
   - else
     = link_to ranking_likes_path(ranking.id), method: :post, remote: true do
-      = icon('fas', 'star', class: 'yes')
-      %span いいね
-      = ranking.likes_count
+      - if ranking.likes_count.nil?
+        = icon('fas', 'star', class: 'yes')
+        いいね 0
+      - else
+        = icon('fas', 'star', class: 'yes')
+        %span いいね
+        = ranking.likes_count
 

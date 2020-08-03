@@ -38,3 +38,15 @@
           .Like
             %span{id: "rankings_buttons_#{ranking.id}"}
               = render partial: 'rankings/like_area', locals: { ranking: ranking }
+      - else
+        .Like
+          - if ranking.likes_count.nil?
+            = icon('fas', 'star', class: 'yes')
+            いいね 0
+          - elsif ranking.likes_count == 0
+            = icon('fas', 'star', class: 'yes')
+            いいね
+          - else
+            = icon('fas', 'star', class: 'no')
+            いいね
+          = ranking.likes_count
