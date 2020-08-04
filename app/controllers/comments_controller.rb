@@ -1,7 +1,13 @@
 class CommentsController < ApplicationController
   def create
-    comment = Comment.create(comment_params)
-    redirect_to ranking_path(comment.ranking.id)
+    @comment = Comment.new(comment_params)
+    if @comment.save
+      respond_to do |format|
+        format.json
+      end
+    else
+      render ranking_path(@comment.ranking.id)
+    end
   end
 
   private

@@ -1,23 +1,23 @@
 $(document).on('turbolinks:load', ()=> {
   function buildHTML(comment){
-    // if (comment.user_id === .ranking.id) {
-      // let html =
-      // `<div class='commentBox__index__box'>
-      //   <span class='commentBox__index__box--name'>${comment.user_name}</span>
-      //   // <span class='commentBox__index__box--saler'>投稿者</span>
-      //   <span class='commentBox__index__box--date'>${comment.created_at}</span>
-      //   <p class='commentBox__index__box--text'>${comment.text}</p>
-      // </div>`
-      // return html;
-    // } else {
-    let html =
-    `<div class='commentBox__index__box'>
-      <span class='commentBox__index__box--name'>${comment.user_name}</span>
-      <span class='commentBox__index__box--date'>${comment.created_at}</span>
-      <p class='commentBox__index__box--text'>${comment.text}</p>
-    </div>`
-    return html;
-    // }
+    if (comment.user_id === comment.ranking_id) {
+      let html =
+      `<div class='commentBox__index__box'>
+        <span class='commentBox__index__box--name'>${comment.user_name}</span>
+        <span class='commentBox__index__box--send'>投稿者</span>
+        <span class='commentBox__index__box--date'>${comment.created_at}</span>
+        <p class='commentBox__index__box--text'>${comment.text}</p>
+      </div>`
+      return html;
+    } else {
+      let html =
+      `<div class='commentBox__index__box'>
+        <span class='commentBox__index__box--name'>${comment.user_name}</span>
+        <span class='commentBox__index__box--date'>${comment.created_at}</span>
+        <p class='commentBox__index__box--text'>${comment.text}</p>
+      </div>`
+      return html;
+    }
   }
   $('#new_comment').on('submit', function(e){
     e.preventDefault();

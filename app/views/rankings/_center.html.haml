@@ -35,45 +35,31 @@
               = icon('fas', 'star', class: 'no')
               %span いいね
             %span= @ranking.likes_count
-      .container
+      .commentBox
         - if current_user
-          = form_with(model: [@ranking, @comment], local: true) do |form|
-            = form.text_area :text, placeholder: "コメントする", rows: "2"
-            = form.submit "SEND"
+          = form_with(model: [@ranking, @comment], local: true, id: "new_comment") do |f|
+            = f.text_area :text, placeholder: "コメントする", class: "commentBox__text"
+            .commentBox__caution
+              相手のことを考え丁寧なコメントを心がけましょう。
+              %br
+              不快な言葉遣いなどは利用制限や退会処分となることがあります。
+            = button_tag type: "submit", class: "commentBox__submit" do
+              %i.fa.fa-comment
+              コメントする
         - else
-          %strong
-            %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
-        ＜コメント一覧＞
-        - if @comments
-          - @comments.each do |comment|
-            = comment.user.name
-            = comment.text
-      -# .commentBox
-      -#   - if current_user
-      -#     = form_with(model: [@ranking, @comment], local: true, id: "new_comment") do |f|
-      -#       = f.text_area :text, placeholder: "コメントする", class: "commentBox__text"
-      -#       .commentBox__caution
-      -#         相手のことを考え丁寧なコメントを心がけましょう。
-      -#         %br
-      -#         不快な言葉遣いなどは利用制限や退会処分となることがあります。
-      -#       = button_tag type: "submit", class: "commentBox__submit" do
-      -#         %i.fa.fa-comment
-      -#         コメントする
-      -#   - else
-      -#     .commentBox__signin
-      -#       %p コメントの投稿には、
-      -#       = link_to "ログイン", new_user_session_path
-      -#       または
-      -#       = link_to "新規会員登録", new_user_registration_path
-      -#       が必要です
-      -#   %p.commentBox__head ＜コメント一覧＞
-      -#   .commentBox__index
-      -#     - if @comments
-      -#       - @comments.each do |comment|
-      -#         .commentBox__index__box
-      -#           -# ユーザーの詳細が出来たらリンクにする
-      -#           %span.commentBox__index__box--name= comment.user.name
-      -#           -# - if comment.user.id == @ranking.user_id
-      -#           -#   %span.commentBox__index__box--saler 投稿者
-      -#           %span.commentBox__index__box--date= comment.created_at.strftime("%Y-%m-%d %H:%M")
-      -#           %p.commentBox__index__box--text= comment.text
+          .commentBox__signin
+            %p コメントの投稿には、
+            = link_to "ログイン", new_user_session_path
+            または
+            = link_to "新規会員登録", new_user_registration_path
+            が必要です
+        %p.commentBox__head ＜コメント一覧＞
+        .commentBox__index
+          - if @comments
+            - @comments.each do |comment|
+              .commentBox__index__box
+                %span.commentBox__index__box--name= comment.user.name
+                - if comment.user.id == @ranking.user_id
+                  %span.commentBox__index__box--send 投稿者
+                %span.commentBox__index__box--date= comment.created_at.strftime("%Y-%m-%d %H:%M")
+                %p.commentBox__index__box--text= comment.text

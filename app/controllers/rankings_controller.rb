@@ -36,7 +36,7 @@ class RankingsController < ApplicationController
     @ranking_likes = Ranking.all.order(likes_count: "DESC")
     @like = Like.new
     @comment = Comment.new
-    @comments = @ranking.comments.order(created_at: :desc)
+    @comments = @ranking.comments.includes(:user)
   end
 
   def destroy
