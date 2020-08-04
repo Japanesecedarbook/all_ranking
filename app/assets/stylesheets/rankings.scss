@@ -148,6 +148,76 @@
       }
     }
   }
+  .commentBox{
+    width: 500px;
+    margin: 10px auto 0;
+    background-color: #fff;
+    padding: 24px 40px 20px;
+    text-align: center;
+    &__text{
+      width: 100%;
+      min-height: 104px;
+      padding: 10px;
+    }
+    &__caution{
+      margin-top: 10px;
+      background-color: #f8f8f8;
+      font-size: 14px;
+      padding: 10px;
+      text-align: left;
+    }
+    &__submit{
+      padding: 10px 5px;
+      color: black;
+      border: 1px solid #111111;
+      background-color: white;
+      border-radius: 10px;
+    }
+    &__signin{
+      margin-top: 10px;
+      a {
+        text-decoration: none;
+        color: #3CCACE;
+        font-weight: bold;
+      }
+    }
+    &__head{
+      font-size: 24px;
+      margin-top: 16px;
+      cursor: pointer;
+    }
+    &__index{
+      max-height: 420px;
+      overflow: scroll;
+      margin: 0 40px;
+      padding: 0 5px;
+      &__box{
+        text-align: left;
+        padding: 5px 0;
+        &--name{
+          font-weight: bold;
+          margin-left: 4px;
+        }
+        &--saler{
+          font-size: 14px;
+          background-color: #3CCACE;
+          color: white;
+          text-shadow: 0 0 3px rgba(33,33,33,0.4);
+          padding: 2px;
+        }
+        &--date{
+          font-size: 12px;
+          float: right;
+          color: #555;
+        }
+        &--text{
+          background-color: whitesmoke;
+          padding: 8px;
+          white-space: pre-wrap;
+        }
+      }
+    }
+  }
 }
 
 // ------------------メニュー-----------------

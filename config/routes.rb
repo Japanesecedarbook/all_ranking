@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root "rankings#index"
   resources :users, only: [:edit, :update]
   resources :rankings, shallow: true do
+    resources :comments, only: [:create, :destroy]
     resource :likes, only: %i[create destroy]
     get :likes, on: :collection
     collection do
