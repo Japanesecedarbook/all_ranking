@@ -35,6 +35,8 @@ class RankingsController < ApplicationController
     @ranking = Ranking.find(params[:id])
     @ranking_likes = Ranking.all.order(likes_count: "DESC")
     @like = Like.new
+    @comment = Comment.new
+    @comments = @ranking.comments.includes(:user)
   end
 
   def destroy

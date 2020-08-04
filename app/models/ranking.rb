@@ -1,6 +1,7 @@
 class Ranking < ApplicationRecord
   belongs_to :user
   has_many :likes, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   validates :title, presence: true, length: { maximum: 20}
   validates :rank1, presence: true, length: { maximum: 20}
