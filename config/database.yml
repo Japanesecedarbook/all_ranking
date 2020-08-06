@@ -51,5 +51,5 @@ production:
   <<: *default
   database: all_ranking_production
   username: root
-  password: <%= ENV['TESTAPP_DATABASE_PASSWORD'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
   socket: /var/lib/mysql/mysql.sock
