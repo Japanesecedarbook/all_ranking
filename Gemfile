@@ -72,6 +72,7 @@ gem 'mini_magick'
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
 gem 'fog-aws'
+gem 'kaminari'
 
 group :production do
   gem 'unicorn'
