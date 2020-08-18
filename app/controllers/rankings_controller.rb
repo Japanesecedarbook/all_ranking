@@ -1,6 +1,7 @@
 class RankingsController < ApplicationController
   def index
-    @rankings = Ranking.all.order(id: "DESC")
+    # @rankings = Ranking.all.order(id: "DESC")
+    @rankings = Ranking.page(params[:page]).per(2).order(id: "DESC")
     @ranking_likes = Ranking.all.order(likes_count: "DESC")
     @like = Like.new
   end
