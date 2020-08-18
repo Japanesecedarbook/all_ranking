@@ -33,6 +33,7 @@
 }
 // ------------------body-----------------
 .body{
+  height: 1308px;
   display: flex;
   background-image: image-url("cracker.png");
   background-color:rgba(255,255,255,0.85);
@@ -41,7 +42,7 @@
 
 // ------------------いいねランキング-----------------
 .Like-ranking{
-  height: calc(100vh - 60px);
+  height: 1308px;
   width: 300px;
   padding: 10px;
   .Like-item{
@@ -56,7 +57,7 @@
 // ------------------メインコンテンツ-----------------
 
 .Main-contents{
-  height: calc(100vh - 60px);
+  height: 1308px;
   width: 600px;
   padding: 10px 50px;
   background-color: white;
@@ -225,6 +226,7 @@
 // ------------------メニュー-----------------
 
 .Right-menu{
+  height: 1308px;
   padding: 20px;
   .Right-items{
     &__ranking-btn{
