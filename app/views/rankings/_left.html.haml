@@ -4,5 +4,6 @@
       いいねランキング
     - @ranking_likes.first(10).each_with_index do |rank,i|
       %li
-        #{i + 1}位：
-        = rank.title
+        = link_to ranking_path(rank.id) do
+          %span #{i + 1}位：
+          %span= rank.title
