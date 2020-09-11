@@ -14,18 +14,11 @@
     font-size: 40px;
   }
   .Head-items{
-    &__logout-btn{
+    &__btn{
       padding: 10px 5px;
       border: 1px solid #111111;
-      margin: 0 20px;
+      margin: 0 10px;
       color: black;
-      background-color: white;
-      border-radius: 10px;
-    }
-    &__edit-btn{
-      padding: 10px 5px;
-      color: black;
-      border: 1px solid #111111;
       background-color: white;
       border-radius: 10px;
     }
