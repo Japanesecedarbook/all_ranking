@@ -24,17 +24,37 @@
           .Ranking-name
             投稿者:
             = @ranking.user.name
-          .Like
-            - if @ranking.likes_count.nil?
-              = icon('fas', 'star', class: 'yes')
-              %span いいね 0
-            - elsif @ranking.likes_count == 0
-              = icon('fas', 'star', class: 'yes')
-              %span いいね
+          - if user_signed_in?
+            - if current_user.id == @ranking.user_id
+              .Like
+                - if @ranking.likes_count.nil?
+                  = icon('fas', 'star', class: 'yes')
+                  %span いいね 0
+                - elsif @ranking.likes_count == 0
+                  = icon('fas', 'star', class: 'yes')
+                  %span いいね
+                - else
+                  = icon('fas', 'star', class: 'no')
+                  %span いいね
+                %span= @ranking.likes_count
+              = link_to "編集", edit_ranking_path(@ranking.id), class: "Edit-btn"
+              = link_to '削除', ranking_path(@ranking.id), method: :delete, class: "Delete-btn", data: { confirm: "#{@ranking.title}ランキングを削除しますか？" }
             - else
-              = icon('fas', 'star', class: 'no')
-              %span いいね
-            %span= @ranking.likes_count
+              .Like
+                %span{id: "rankings_buttons_#{@ranking.id}"}
+                  = render partial: 'rankings/like_area', locals: { ranking: @ranking }
+          - else
+            .Like
+              - if @ranking.likes_count.nil?
+                = icon('fas', 'star', class: 'yes')
+                %span いいね 0
+              - elsif @ranking.likes_count == 0
+                = icon('fas', 'star', class: 'yes')
+                %span いいね
+              - else
+                = icon('fas', 'star', class: 'no')
+                %span いいね
+              %span= @ranking.likes_count
       .commentBox
         - if current_user
           = form_with(model: [@ranking, @comment], local: true, id: "new_comment") do |f|
