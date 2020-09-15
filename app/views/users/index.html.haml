@@ -1,0 +1,7 @@
+.wrapper
+  = render "rankings/header"
+%h1 ユーザー 一覧
+%ul.users
+  - @users.each do |user|
+    %li
+      = link_to user.name, user
