@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     post 'users/guest_sign_in', to: 'users/sessions#new_guest'
   end
   root "rankings#index"
-  resources :users, only: [:index, :edit, :update]
+  resources :users, only: [:index, :show, :edit, :update]
   resources :rankings, shallow: true do
     resources :comments, only: [:create, :destroy]
     resource :likes, only: %i[create destroy]
