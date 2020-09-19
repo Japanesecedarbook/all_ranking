@@ -1,4 +1,5 @@
 = page_entries_info(@rankings) 
+ 
 - @rankings.each do |ranking| 
   .Ranking{:style => "background-image: url(#{ranking.image});"}
     = link_to ranking_path(ranking.id) do
